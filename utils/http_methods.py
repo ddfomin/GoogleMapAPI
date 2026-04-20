@@ -1,5 +1,4 @@
 """Список HTTP методов"""
-
 import requests
 
 headers = {"Content-type": "application/json"}
