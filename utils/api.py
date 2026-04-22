@@ -37,3 +37,51 @@ class GoogleMapsAPI:
         print(result_post.json())
         print(result_post.status_code)
         return result_post
+
+    @staticmethod
+    def get_new_place(place_id):
+        """Метод для проверки новой локации"""
+
+        get_resource = "/maps/api/place/get/json"  # ресурс метода Get
+        get_url = base_url + get_resource + key + "&place_id=" + place_id
+        print(get_url)
+        result_get = http.get(get_url)
+        print(result_get.json())
+        print(result_get.status_code)
+        return result_get
+
+    @staticmethod
+    def put_new_place(place_id):
+        """Метод для изменения новой локации"""
+
+        put_resource = "/maps/api/place/update/json"  # ресурс метода Put
+        put_url = base_url + put_resource + key
+        print(put_url)
+
+        json_for_update_new_location = {
+            "place_id": place_id,
+            "address": "100 Lenina street, RU",
+            "key": "qaclick123"
+        }
+
+        result_put = http.put(put_url, json_for_update_new_location)
+        print(result_put.json())
+        print(result_put.status_code)
+        return result_put
+
+    @staticmethod
+    def delete_new_place(place_id):
+        """Метод для удаления новой локации"""
+
+        delete_resource = "/maps/api/place/delete/json"  # ресурс метода Delete
+        delete_url = base_url + delete_resource + key
+        print(delete_url)
+
+        json_for_delete_new_location = {
+            "place_id": place_id
+        }
+
+        result_delete = http.delete(delete_url, json_for_delete_new_location)
+        print(result_delete.json())
+        print(result_delete.status_code)
+        return result_delete
