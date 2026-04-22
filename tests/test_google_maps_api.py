@@ -41,7 +41,7 @@ class TestCreatePlace:
         check.check_status_code(result_delete, 200)
         check.check_json_for_keys_in_the_response(result_delete, ['status'])
         check.check_json_for_values_in_the_response(result_delete, 'status', 'OK')
-        print("")
+
         print("\nМетод GET DELETE")
         result_get_delete_location = GoogleMapsAPI.get_new_place(place_id)  # отправка метода Get
         check.check_status_code(result_get_delete_location, 404)
