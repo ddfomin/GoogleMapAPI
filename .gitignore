@@ -1,28 +1,31 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
 .Python
-env/
-venv/
-.venv/
-ENV/
-.env
-
-# IDE
-.idea/
-.vscode/
-*.iml
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
 
 # Logs
+logs/
 *.log
 
 # Allure
 allure-results/
 allure-report/
+
+# Test files
+*.txt
+!requirements.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

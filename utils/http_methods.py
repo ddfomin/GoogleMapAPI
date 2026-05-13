@@ -1,17 +1,40 @@
-"""Список HTTP методов"""
+"""HTTP методы с логированием"""
+import allure
 import requests
+from utils.logger import Logger
 
-headers = {"Content-type": "application/json"}
-cookies = None
 
+@allure.step("GET запрос")
 def get(url):
-    return requests.get(url, headers=headers, cookies=cookies)
+    """GET запрос"""
+    Logger.add_request(url, "GET")
+    response = requests.get(url)
+    Logger.add_response(response)
+    return response
 
+
+@allure.step("POST запрос")
 def post(url, body):
-    return requests.post(url, json=body, headers=headers, cookies=cookies)
+    """POST запрос"""
+    Logger.add_request(url, "POST")
+    response = requests.post(url, json=body)
+    Logger.add_response(response)
+    return response
 
+
+@allure.step("PUT запрос")
 def put(url, body):
-    return requests.put(url, json=body, headers=headers, cookies=cookies)
+    """PUT запрос"""
+    Logger.add_request(url, "PUT")
+    response = requests.put(url, json=body)
+    Logger.add_response(response)
+    return response
 
+
+@allure.step("DELETE запрос")
 def delete(url, body):
-    return requests.delete(url, json=body, headers=headers, cookies=cookies)
+    """DELETE запрос"""
+    Logger.add_request(url, "DELETE")
+    response = requests.delete(url, json=body)
+    Logger.add_response(response)
+    return response
